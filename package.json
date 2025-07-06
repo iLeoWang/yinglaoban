@@ -2,6 +2,7 @@
     "name": "ruankao-badge-generator",
     "version": "1.0.0",
     "description": "软考纪念章生成器",
+    "homepage": "https://iLeoWang.github.io/yinglaoban",
     "type": "module",
     "packageManager": "pnpm@10.12.4",
     "scripts": {
@@ -9,6 +10,7 @@
         "dev": "vite",
         "build": "tsc && vite build",
         "preview": "vite preview",
+        "deploy": "pnpm run build && gh-pages -d dist",
         "test": "vitest",
         "test:ui": "vitest --ui",
         "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
@@ -50,6 +52,7 @@
         "eslint": "^8.57.0",
         "eslint-plugin-react-hooks": "^4.6.0",
         "eslint-plugin-react-refresh": "^0.3.4",
+        "gh-pages": "^6.3.0",
         "jsdom": "^21.1.1",
         "postcss": "^8.4.21",
         "tailwindcss": "^3.3.0",
