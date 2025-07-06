@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, Heart } from 'lucide-react';
+import { FaGithub } from 'react-icons/fa';
+import { BsRocketFill } from 'react-icons/bs';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -24,33 +25,33 @@ const Footer: React.FC = () => {
               &copy; {currentYear} 软考纪念章生成器. All Rights Reserved.
             </p>
             <p className="text-xs mt-1 flex items-center justify-center sm:justify-start gap-1">
-              由{' '}
+              由
               <motion.a
-                href="https://github.com/Yinglaoban"
+                href="https://github.com/iLeoWang/yinglaoban"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-semibold text-gray-300 hover:text-purple-400 transition-colors duration-200 flex items-center gap-1"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Github className="w-3 h-3" />
+                <FaGithub className="w-3 h-3" />
                 莹核动力
               </motion.a>
+
+              驱动
               <motion.span
                 animate={{
-                  scale: [1, 1.2, 1],
-                  rotate: [0, 10, -10, 0],
+                  y: [0, -2, 0],
                 }}
                 transition={{
-                  duration: 2,
+                  duration: 1,
                   repeat: Infinity,
-                  repeatDelay: 3,
+                  ease: 'easeInOut',
                 }}
-                className="text-red-400"
+                className="inline-block text-red-500"
               >
-                <Heart className="w-3 h-3 fill-current" />
+                <BsRocketFill className="w-4 h-4" />
               </motion.span>
-              驱动
             </p>
           </motion.div>
 
