@@ -4,7 +4,8 @@
 
 /* 主题装饰动画 */
 @keyframes sparkle {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.3;
     transform: scale(0.8);
   }
@@ -15,7 +16,8 @@
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
@@ -24,7 +26,8 @@
 }
 
 @keyframes glow {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 5px currentColor;
   }
   50% {
@@ -54,129 +57,131 @@
 }
 
 @layer base {
-    :root {
-        --background: 220 13% 9%;
-        --foreground: 210 40% 98%;
+  :root {
+    --background: 220 13% 9%;
+    --foreground: 210 40% 98%;
 
-        --card: 220 13% 13%;
-        --card-foreground: 210 40% 98%;
+    --card: 220 13% 13%;
+    --card-foreground: 210 40% 98%;
 
-        --popover: 220 13% 9%;
-        --popover-foreground: 210 40% 98%;
+    --popover: 220 13% 9%;
+    --popover-foreground: 210 40% 98%;
 
-        --primary: 260 100% 75%; /* Soft Lavender */
-        --primary-foreground: 260 100% 15%;
+    --primary: 260 100% 75%; /* Soft Lavender */
+    --primary-foreground: 260 100% 15%;
 
-        --secondary: 220 13% 25%;
-        --secondary-foreground: 210 40% 98%;
+    --secondary: 220 13% 25%;
+    --secondary-foreground: 210 40% 98%;
 
-        --muted: 220 13% 25%;
-        --muted-foreground: 215 20.2% 65.1%;
+    --muted: 220 13% 25%;
+    --muted-foreground: 215 20.2% 65.1%;
 
-        --accent: 220 13% 25%;
-        --accent-foreground: 210 40% 98%;
+    --accent: 220 13% 25%;
+    --accent-foreground: 210 40% 98%;
 
-        --destructive: 0 62.8% 50.6%;
-        --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 50.6%;
+    --destructive-foreground: 210 40% 98%;
 
-        --border: 220 13% 20%;
-        --input: 220 13% 20%;
-        --ring: 260 100% 75%;
+    --border: 220 13% 20%;
+    --input: 220 13% 20%;
+    --ring: 260 100% 75%;
 
-        --radius: 1rem;
-    }
+    --radius: 1rem;
+  }
 
-    .dark {
-        --background: 220 13% 9%;
-        --foreground: 210 40% 98%;
+  .dark {
+    --background: 220 13% 9%;
+    --foreground: 210 40% 98%;
 
-        --card: 220 13% 13%;
-        --card-foreground: 210 40% 98%;
+    --card: 220 13% 13%;
+    --card-foreground: 210 40% 98%;
 
-        --popover: 220 13% 9%;
-        --popover-foreground: 210 40% 98%;
+    --popover: 220 13% 9%;
+    --popover-foreground: 210 40% 98%;
 
-        --primary: 260 100% 75%; /* Soft Lavender */
-        --primary-foreground: 260 100% 15%;
+    --primary: 260 100% 75%; /* Soft Lavender */
+    --primary-foreground: 260 100% 15%;
 
-        --secondary: 220 13% 25%;
-        --secondary-foreground: 210 40% 98%;
+    --secondary: 220 13% 25%;
+    --secondary-foreground: 210 40% 98%;
 
-        --muted: 220 13% 25%;
-        --muted-foreground: 215 20.2% 65.1%;
+    --muted: 220 13% 25%;
+    --muted-foreground: 215 20.2% 65.1%;
 
-        --accent: 220 13% 25%;
-        --accent-foreground: 210 40% 98%;
+    --accent: 220 13% 25%;
+    --accent-foreground: 210 40% 98%;
 
-        --destructive: 0 62.8% 50.6%;
-        --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 50.6%;
+    --destructive-foreground: 210 40% 98%;
 
-        --border: 220 13% 20%;
-        --input: 220 13% 20%;
-        --ring: 260 100% 75%;
+    --border: 220 13% 20%;
+    --input: 220 13% 20%;
+    --ring: 260 100% 75%;
 
-        --radius: 1rem;
-    }
+    --radius: 1rem;
+  }
 }
 
 @layer base {
-    body {
-        background-color: hsl(var(--background));
-        background-image: radial-gradient(circle at 1px 1px, hsl(var(--border)) 1px, transparent 0);
-        background-size: 2rem 2rem;
-    }
+  body {
+    background-color: hsl(var(--background));
+    background-image: radial-gradient(circle at 1px 1px, hsl(var(--border)) 1px, transparent 0);
+    background-size: 2rem 2rem;
+  }
 }
 
 @layer base {
-    * {
-        @apply border-border;
-    }
-    body {
-        @apply bg-background text-foreground;
-    }
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
 
 body {
-    font-family: "Inter", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    /* 禁止缩放相关样式 */
-    touch-action: manipulation;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    /* 禁用双击缩放 */
-    -webkit-tap-highlight-color: transparent;
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* 禁止缩放相关样式 */
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* 禁用双击缩放 */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
 }
 
 /* 优化用户选择和触摸行为 */
 * {
-    -webkit-touch-callout: none;
-    -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 /* 禁用文本选择（除了特定元素） */
 *:not(input):not(textarea):not([contenteditable]) {
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 /* 允许输入框和文本区域的文本选择 */
-input, textarea, [contenteditable] {
-    -webkit-user-select: text;
-    -khtml-user-select: text;
-    -moz-user-select: text;
-    -ms-user-select: text;
-    user-select: text;
+input,
+textarea,
+[contenteditable] {
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
 }
 
 /* 移除重复的sparkle动画定义 */

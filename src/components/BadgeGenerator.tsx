@@ -173,13 +173,33 @@ const BadgeGenerator = () => {
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="text-center text-gray-300 font-semibold mb-3">
-                  请长按图片保存到手机
+                  {/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+                    navigator.userAgent,
+                  )
+                    ? '请长按图片保存到手机'
+                    : '图片已自动下载到您的设备'}
                 </div>
-                <img
-                  src={previewImage}
-                  alt="生成的纪念章"
-                  className="max-w-[80vw] max-h-[80vh] rounded-md"
-                />
+                {previewImage && (
+                  <img
+                    src={previewImage}
+                    alt="生成的纪念章"
+                    className="max-w-[80vw] max-h-[70vh] rounded-md object-contain"
+                    style={{
+                      imageRendering: '-webkit-optimize-contrast',
+                    }}
+                    onLoad={() => console.log('图片加载成功')}
+                    onError={(e) => {
+                      console.error('图片加载失败:', e);
+                      console.log('图片URL长度:', previewImage.length);
+                      console.log('图片URL前缀:', previewImage.substring(0, 50));
+                    }}
+                  />
+                )}
+                {!previewImage && (
+                  <div className="w-80 h-80 flex items-center justify-center text-gray-400">
+                    图片生成中...
+                  </div>
+                )}
                 <button
                   onClick={() => setShowPreviewModal(false)}
                   className="absolute -top-4 -right-4 bg-surface rounded-full p-2 ring-1 ring-border shadow-lg text-gray-300 hover:text-white transition-colors"
